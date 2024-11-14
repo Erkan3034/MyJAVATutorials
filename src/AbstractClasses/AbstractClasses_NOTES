@@ -1,0 +1,38 @@
+====================>ABSTRACT CLASSES========================
+
+-> Java'da Abstract Class (Soyut Sınıf), nesne olarak doğrudan kullanılamayan ve 
+genellikle ortak özellikleri tanımlamak için kullanılan sınıflardır. 
+
+Bu sınıflar, başka sınıfların kendisinden türeyip, ortak özellikleri kullanarak işlevsellik kazanmalarını sağlar. 
+Abstract class'lar bir şablon veya temel sınıf görevi görürler.
+
+
+
+->ZORUNLU İMZALAR: 
+  Abstract classlar alt sınıfların belirli metodları kendine göre tanımlamasını(override etmesini)
+  "zorunlu" kılar. BU esneklik ve güvenlik sağlar 
+  
+  "final"  parametresi ise, bir metodun override edilmesini engeller.
+
+================================================================================================
+
+->NESNE ÜRETİMİNİN ÖNLENMESİ :
+
+  Abstract classlar'dan doğrudan nesne "Üretilemez";
+  Bu da SOYUT yapıyı yalnızca miras almak için kullanılmayıs ağlar.
+
+================================================================================================
+
+-> ŞABLON SAĞLAMA:
+
+  Alt sınıfların belli bir standartta olmasını zorlar ve bir şablon sunar.
+
+================================================================================================
+
+-> POLİMORFİZM:
+
+  Farklı sınıfların aynı abstract class üzerinden yönetilmesini sağlayarak kodun daha
+  esnek ve okunbailir olmasını sağlar.
+  
+  
+  

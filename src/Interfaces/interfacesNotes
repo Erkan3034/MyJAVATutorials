@@ -1,0 +1,98 @@
+
+==============================INTERFACES=========================================================
+
+
+  Interface’ler, Java’da soyut bir yapı sunar ama bazı önemli farklarla abstract class’lardan ayrılırlar. İşte interface'leri,
+  abstract class'larla karşılaştırmalı olarak ve temel kullanım alanlarıyla açıklayalım:
+
+------> 1. Tamamen Soyut Bir Şablon Sunar:
+  
+Interface'ler, tamamen soyut olup içinde yalnızca metod imzalarını (yani gövdeleri olmayan metod tanımlarını) içerir. Bu nedenle interface’de tanımlanan tüm metodlar public ve abstract olarak varsayılır. Alt sınıflar (veya “implement” eden sınıflar) bu metodları kendi ihtiyaçlarına göre tanımlamak zorundadır.
+
+
+    interface Hayvan {
+      void sesCikar(); // Her hayvan farklı ses çıkarmalı
+      void hareketEt(); // Her hayvanın kendine özgü bir hareket yöntemi olmalı
+    }
+Bu durumda, Hayvan interface'ini implemente eden tüm sınıflar (Kedi, Köpek, vb.), sesCikar ve hareketEt metodlarını kendine göre tanımlar.
+
+
+
+==================================================================================================================
+-------> 2. Çoklu Kalıtım Desteği Sağlar:
+
+Java’da sınıflar birden fazla sınıftan miras alamaz (çoklu kalıtım yoktur). Ancak, bir sınıf birden fazla interface’i implement edebilir. Bu sayede, bir sınıfa farklı interface’lerden birçok özellik kazandırmak mümkün olur.
+
+
+  interface Ucan {
+      void uc();
+  }
+
+  interface Yuzebilir {
+      void yuz();
+  }
+
+  class Ordek implements Ucan, Yuzebilir {
+      public void uc() {
+          System.out.println("Ördek uçuyor.");
+      }
+    
+      public void yuz() {
+          System.out.println("Ördek yüzüyor.");
+      }
+  }
+Burada Ordek sınıfı, Ucan ve Yuzebilir interface’lerini implement ederek hem uçma hem de yüzme özelliklerine sahip olur.
+
+
+==================================================================================================================
+
+-----> 3. Standartlaştırma ve Sözleşme Oluşturma:
+
+Interface'ler, belirli bir sınıfın hangi metodları içermesi gerektiğini belirleyen bir sözleşme sunar. Bir interface’i implement eden sınıf, interface’deki tüm metodları tanımlamak zorundadır. Bu, tüm sınıfların belli bir standardı korumasını sağlar.
+
+
+interface Cihaz {
+    void baslat(); //zorunlu metot
+    void durdur(); //zorunlu metot
+}
+
+Tüm cihaz türleri için ortak olan baslat ve durdur metodlarını tanımlayarak, her cihaz sınıfının bu metodları içermesini zorunlu kılar. Bu, projede cihazların nasıl çalıştığına dair bir standart oluşturur.
+
+==================================================================================================================
+
+
+------> 4. Abstract Class ve Interface Arasındaki Farklar:
+
+|----------------------------------------------------------------------------------------------------------------------------------------------|
+|Özellik          |	                 Abstract Class	              |                           Interface                                        |
+|----------------------------------------------------------------------------------------------------------------------------------------------|
+|Nesne Üretimi    |	  Nesne üretilemez	                          | Nesne üretilemez                                                           |
+|----------------------------------------------------------------------------------------------------------------------------------------------|
+|Metod Gövdeleri  |	  Metod gövdeleri içerebilir	              | Metod gövdeleri içermez (Java 8’den sonra default ve static metodlar hariç)|
+|----------------------------------------------------------------------------------------------------------------------------------------------|
+|Çoklu Kalıtım	  |   Sadece bir abstract class miras alınabilir  | Birden fazla interface implement edilebilir                                |
+|----------------------------------------------------------------------------------------------------------------------------------------------|
+|Kapsamlı Alanlar |   (Fields)	Değişken tanımlanabilir	          | Sadece public static final sabitler tanımlanabilir                         |
+-----------------------------------------------------------------------------------------------------------------------------------------------|
+
+==================================================================================================================
+
+5. Polimorfizmi Destekleme: 
+
+Interface'ler, polimorfizmin sağlanmasında önemli bir rol oynar. Örneğin, Cihaz tipinde bir referansla tüm cihazları yönetmek gibi bir yapı kurabilirsin.
+
+
+Cihaz bilgisayar = new Bilgisayar();
+Cihaz televizyon = new Televizyon();
+
+==================================================================================================================
+
+Kısaca Özet:
+
+✔️ Interface’ler tamamen soyut bir yapı sunarak sınıflar arasında standartları belirler.
+✔️ Birden fazla interface’ten özellik alabilmeyi sağlar, böylece çoklu kalıtımı destekler.
+✔️ Interface’i implement eden her sınıf, interface’de belirtilen metodları tanımlamak zorundadır.
+✔️ Interface’ler, abstract class’ların aksine çoklu kalıtım esnekliği sunarak daha modüler ve esnek bir yapı sağlar ve özellikle Java’da çoklu kalıtım gerektiren durumlarda önemli bir rol oynar.
+
+
+
